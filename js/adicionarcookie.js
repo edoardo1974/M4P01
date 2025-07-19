@@ -44,11 +44,9 @@ function createcookie() {
     const nome1 = "M4_UD01_P01";
     const valor1 = Date.now(); // milissegundos
     setCookie(nome1, valor1, 206); // expira em 206 dias (ou o número que preferir)
-  //const cookieName = "test_cookie";
-  //const cookieValue = "test_value_" + Date.now();
- // const daysToExpire = 1; // Cookie expires in 1 day
-  //setCookie(cookieName, cookieValue, daysToExpire);
-  //console.log(`Cookie created: ${cookieName}=${cookieValue}`);
+    nome.push(nome1);
+    valore.push(valor1);
+    scadenza.push(206);
 }
 
 function imprimircookie() {
@@ -60,14 +58,9 @@ function imprimircookie() {
             document.getElementById('output').innerHTML += `Cookie ${nome[i]} not found.<br>`;
         }
     }
-  //const cookieName = "test_cookie";
-  //const cookieValue = getCookie(cookieName);
-  //if (cookieValue) {
-   // console.log(`Cookie value: ${cookieName}=${cookieValue}`);
-  //} else {
-   // console.log(`Cookie ${cookieName} not found.`);
-  //}
+    document.getElementById('output').innerHTML += ` <br>`;
 }
+  
 
 function eliminarcookie() {
   document.cookie = `M4_UD01_P01=; expires=${new Date(0).toUTCString()}; path=/`;
@@ -75,14 +68,9 @@ function eliminarcookie() {
 
 
 function objectcookie() {
-    //const cookiesObj = Object.fromEntries(
-    //document.cookie.split('; ').map(c => c.split('='))
-    //);
-    //console.log(cookiesObj);
     document.cookie.split('; ').forEach(cookie => {
         const [name, value] = cookie.split('=');
-        //console.log(`Cookie: ${name}=${value}`);
-        document.getElementById('output').innerHTML += `Cookie: ${name}=${value}<br>`;
-
+        document.getElementById('output').innerHTML += `Object Cookie: ${name}=${value}<br>`;
     });
+     document.getElementById('output').innerHTML += ` <br>`;
 }
